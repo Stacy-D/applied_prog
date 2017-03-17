@@ -1,0 +1,36 @@
+﻿@model IEnumerable<Rep_Unit2.Models.Enrollment>
+@{
+    ViewBag.Title = "Enroll";
+}
+
+<h2>Enroll</h2>
+<p>
+    @Html.ActionLink("Enroll to another course", "Create")
+</p>
+<table class="table table-striped">
+    <tr>
+        <th></th>
+        <th>Number</th>
+        <th>Title</th>
+        <th>Grade</th>
+    </tr>
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.ActionLink("Edit", "Edit", new { id = item.CourseID }) |
+                @Html.ActionLink("Details", "Details", new { id = item.CourseID }) |
+                @Html.ActionLink("Delete", "Delete", new { id = item.CourseID })
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.EnrollmentID)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Course.Title)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Grade)
+            </td>
+        </tr>
+    }
+</table>

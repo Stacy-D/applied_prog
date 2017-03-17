@@ -1,0 +1,30 @@
+﻿@model Rep_Unit2.Models.Enrollment
+
+@{
+    ViewBag.Title = "Disenroll";
+}
+
+<h2>Disenroll</h2>
+
+<h3>Are you sure you want to disenroll from this course?</h3>
+<fieldset>
+    <legend>Enrollment</legend>
+
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Course.Title)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.Student.FullName)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Grade)
+    </div>
+</fieldset>
+@using (Html.BeginForm()) {
+    @Html.AntiForgeryToken()
+    <p>
+        <input type="submit" value="Disenroll" /> |
+        @Html.ActionLink("Back to List", "Index")
+    </p>
+}
